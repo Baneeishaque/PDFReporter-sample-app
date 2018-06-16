@@ -1,0 +1,32 @@
+apply plugin: 'com.android.application'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://github.com/OpenSoftwareSolutions/mvn-repo/raw/master/repository/"
+    }
+}
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.1"
+
+    defaultConfig {
+        applicationId "org.oss.pdfreporter.android"
+        minSdkVersion 14
+        targetSdkVersion 27
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:27.0.1'
+    compile 'com.pdfreporting:pdfreporter-android:1.1.1'
+}
